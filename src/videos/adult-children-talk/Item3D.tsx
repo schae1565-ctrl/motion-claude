@@ -37,7 +37,7 @@ const HeavyCoins: React.FC = () => (
 
 const DroppingCoin: React.FC<{ x: number; delay: number }> = ({ x, delay }) => {
   const p = useMotion("soft", delay);
-  return <Coin position={[x, CLOUD[1] - 1.2 - p * 6.5, 1.6]} rotation={[Math.PI / 2, 0, p * 3]} radius={0.5} />;
+  return <Coin position={[x, CLOUD[1] - 1.2 - p * 1.9, 1.6]} rotation={[Math.PI / 2, 0, p * 3]} radius={0.5} />;
 };
 
 /** 변형 2: 자녀 귀 옆으로 작은 말풍선이 겹겹이 쌓인다 (잔소리) */
@@ -52,7 +52,7 @@ const PilingBubbles: React.FC = () => (
 const PileBubble: React.FC<{ i: number }> = ({ i }) => {
   const p = useMotion("pop", 8 + i * 5);
   const x = CHILD[0] + 1.8 + random(`pbx${i}`) * 5.6;
-  const y = -4.6 + random(`pby${i}`) * 4.2 + i * 0.25;
+  const y = -3.9 + random(`pby${i}`) * 3.4 + i * 0.25;
   return (
     <Slab
       w={1.9}

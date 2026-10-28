@@ -5,6 +5,8 @@
 | 파일 | 크기 | 종류 |
 |---|---|---|
 | `videos/example1028/3-footage/raw/example1028.mp4` | 10.4 MB | 촬영 원본 |
+| `videos/example1028/3-footage/cut/example1028_edit.mp4` | 3.8 MB | 편집 완료본 (`edit.json`으로 다시 만들 수 있음) |
+| `videos/adult-children-talk/2-motion/adult-children-talk-3d-subs.mp4` | 8.4 MB | 렌더 결과물 (3D, 자막 포함) |
 | `videos/adult-children-talk/2-motion/adult-children-talk-3d.mp4` | 7.6 MB | 렌더 결과물 (3D) |
 | `videos/adult-children-talk/2-motion/adult-children-talk.mp4` | 4.1 MB | 렌더 결과물 (2D) |
 

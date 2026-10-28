@@ -55,11 +55,11 @@ const Phase1: React.FC = () => {
         <TextPlane text={content.hook.money.amount} size={72} color={theme.onAccent} position={[0.6, -0.4, 0.4]} />
       </group>
 
-      <CoinRain count={12} xRange={[-4.2, 4.2]} floorY={-3.4} fromY={15} delay={10} gap={3} />
+      <CoinRain count={12} xRange={[-4.2, 4.2]} floorY={-3.2} spread={0.8} fromY={15} delay={10} gap={3} />
 
       {/* 멀어지는 엄마와 자녀 */}
-      <Person3D kind="mom" mood="neutral" radius={1.0} position={[-away, -6.8, 0]} />
-      <Person3D kind="child" mood="sad" radius={1.0} position={[away, -6.8, -away * 0.4]} delay={4} />
+      <Person3D kind="mom" mood="neutral" radius={1.0} position={[-away, -7.5, 0]} />
+      <Person3D kind="child" mood="sad" radius={1.0} position={[away, -7.5, -away * 0.4]} delay={4} />
     </group>
   );
 };
@@ -68,19 +68,15 @@ const Phase1: React.FC = () => {
 const Phase2: React.FC = () => {
   const ys = [6.4, 3.9, 1.4];
   const delays = [8, 16, 24];
-  const caption = useMotion("soft", 36);
   return (
     <group>
       {ys.map((y, i) => (
         <FlyingBubble key={i} y={y} delay={delays[i]} side={i % 2 === 0 ? -1 : 1} />
       ))}
-      <Door3D position={[0, -2.6, 0]} delay={50} />
-      <TextPlane
-        text={content.hook.teaser}
-        size={58}
-        position={[0, -6.6 - (1 - caption) * 0.3, 0.5]}
-        opacity={caption}
-      />
+      {/* 이 장면의 문장은 자막으로 나오므로 문 아래 글자는 넣지 않는다 */}
+      <group scale={0.9}>
+        <Door3D position={[0, -2.2, 0]} delay={50} />
+      </group>
     </group>
   );
 };

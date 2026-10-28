@@ -6,6 +6,7 @@ import { CameraRig, type CameraKey } from "../../shared/three/CameraRig";
 import { Hook3D } from "./Hook3D";
 import { Item3D } from "./Item3D";
 import { Closing3D } from "./Closing3D";
+import { Subtitles } from "./Subtitles";
 import { content } from "./content";
 import { NARRATION, closingFrames, hookFrames, itemFrames, starts, timeline } from "./timeline";
 
@@ -64,6 +65,7 @@ export const AdultChildrenTalk3D: React.FC = () => {
           <Closing3D />
         </Sequence>
       </ThreeCanvas>
+      <Subtitles />
     </AbsoluteFill>
   );
 };

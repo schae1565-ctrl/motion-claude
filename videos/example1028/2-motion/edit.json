@@ -1,0 +1,23 @@
+{
+  "input": "3-footage/raw/example1028.mp4",
+  "output": "3-footage/cut/example1028_edit.mp4",
+  "fps": 30,
+  "outputSize": [1920, 1080],
+  "silence": {
+    "noiseDb": -45,
+    "minSec": 0.35,
+    "padBefore": 0.12,
+    "padAfter": 0.15,
+    "endAt": 87.8,
+    "audioTrack": 0
+  },
+  "cuts": [],
+  "blur": [
+    { "label": "API 키 (개인정보)", "start": 71.0, "end": 87.0, "x": 1980, "y": 1650, "w": 1160, "h": 130 }
+  ],
+  "zoom": [
+    { "label": "개발자 메뉴", "start": 15.8, "end": 18.8, "x": 30, "y": 2565, "w": 230, "h": 100, "scale": 2.6 },
+    { "label": "키 생성 버튼", "start": 22.5, "end": 26.0, "x": 4070, "y": 940, "w": 270, "h": 140, "scale": 2.6 },
+    { "label": "클립보드에 복사", "start": 79.5, "end": 84.5, "x": 2820, "y": 1790, "w": 320, "h": 126, "scale": 2.6 }
+  ]
+}

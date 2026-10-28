@@ -31,7 +31,6 @@ const RollingPair: React.FC<{ y: number; radius?: number; from?: number; to?: nu
 
 const Recap: React.FC = () => {
   const right = useMotion("pop", 30);
-  const caption = useMotion("soft", 50);
   return (
     <group>
       <group position={[0, 6.0, 0]}>
@@ -47,12 +46,6 @@ const Recap: React.FC = () => {
       />
       <RollingPair y={-0.6} />
       <HeartBurst position={[0, 1.4, 1]} count={5} delay={70} rise={4} />
-      <TextPlane
-        text={content.closing.recap}
-        size={56}
-        position={[0, -3.8 - (1 - caption) * 0.3, 0.5]}
-        opacity={caption}
-      />
     </group>
   );
 };

@@ -14,6 +14,31 @@ Remotion(React)으로 모션그래픽 영상을 만드는 프로젝트입니다.
 3. 승인된 표대로 `src/videos/<slug>/`에 씬 코드를 작성하고, Composition을 `src/Root.tsx`에 등록한다
 4. 음성·타임라인을 맞추고 렌더링한다
 
+## 작업 단위별 스킬 (`.claude/skills/`)
+
+모션그래픽 제작은 아래 순서로 진행한다. 각 단계의 방법, 명령, 겪은 함정은 해당 스킬에 있다.
+
+| 단계 | 스킬 | 내용 |
+|---|---|---|
+| 0 | `senior-hook-script` | 60대 이상 여성 대상 후킹 대본 |
+| 1 | `motion-1-visual-plan` | 장면 목록·시각화 표 작성과 승인 |
+| 2 | `motion-2-voiceover` | 타입캐스트 TTS 또는 받은 음성 넣기 |
+| 3 | `motion-3-audio-timing` | 음성에서 장면 시작 시각 추정, `timeline.ts` |
+| 4 | `motion-4-build-scenes` | 2D·3D 씬 코드 |
+| 5 | `motion-5-subtitles` | 자막 |
+| 6 | `motion-6-verify-render` | 프레임 확인, 렌더링, 스튜디오 |
+
+촬영 영상(화면 녹화 등) 편집은 아래 순서로 진행한다.
+
+| 단계 | 스킬 | 내용 |
+|---|---|---|
+| 1 | `video-edit-1-ingest` | 원본 보존 폴더로 옮기기, 정보·내용 파악 |
+| 2 | `video-edit-2-silence-cuts` | 무음 제거, 버벅임·반복 구간 삭제 |
+| 3 | `video-edit-3-zoom-blur` | 확대·빨간 박스, 개인정보 블러 |
+| 4 | `video-edit-4-captions-render` | 자막(전사), whisper 제약, 최종 확인 |
+
+재사용 스크립트(`scripts/`): `edit-video.mjs`(영상 편집), `find-scene-starts.mjs`(장면 시작 추정), `typecast-voices.mjs`·`typecast-sample.mjs`·`typecast-tts.mjs`(타입캐스트), `whisper_transcribe.py`(전사).
+
 ## 영상 폴더 구조
 
 영상 하나 = `videos/<slug>` 폴더 하나. `<slug>`는 영문 소문자와 하이픈(`my-first-short`).
@@ -62,6 +87,14 @@ src/
 - 3D 장면의 움직임도 `motion.ts` 스프링만 쓴다. 카메라는 `CameraRig`의 키프레임으로 움직이고, 흔들림은 `shake` 스프링을 쓴다
 - 3D 렌더링은 `remotion.config.ts`의 `setChromiumOpenGlRenderer("angle")`가 필요하다. 렌더링이 2D보다 훨씬 느리다
 - 영상 하나에 3D 버전과 2D 버전이 함께 있을 수 있다 (`adult-children-talk` = 3D, `adult-children-talk-2d` = 2D, 2D 파일은 `src/videos/<slug>/2d/`)
+
+## 자막 규칙
+
+- 자막은 `src/shared/ui/SubtitleLine.tsx`(어두운 바탕 + 흰 글자, 62px)로 화면 아래쪽(1920px 기준 y 1420~1590)에 한 번에 한 줄(최대 두 줄)만 보여 준다. 쇼츠 하단 UI에 가려지지 않도록 그보다 아래에는 두지 않는다
+- 영상별 자막 파일은 `src/videos/<slug>/Subtitles.tsx`에 두고, 나레이션 문장은 `content.ts`의 `narration`에 둔다
+- 문장은 마침표·물음표 단위로 나누고, 장면의 말하는 구간을 글자 수 비율로 나눠 시간을 정한다. 음성 전사(whisper)가 가능해지면 실제 단어 시간으로 바꾼다
+- 화면에 같은 글자가 이미 크게 나오는 문장(안내 문구, 마무리 질문)은 자막으로 중복해서 넣지 않는다
+- 자막이 보이는 아래쪽 영역(y 1400~1600)에는 3D 소품을 두지 않는다
 
 ## 디자인 규칙
 

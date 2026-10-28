@@ -27,13 +27,15 @@ export const CoinRain: React.FC<{
   fromY?: number;
   delay?: number;
   gap?: number;
-}> = ({ count = 12, xRange = [-4, 4], floorY = -4, fromY = 14, delay = 0, gap = 3 }) => (
+  /** 바닥에 쌓일 때 세로로 퍼지는 폭 */
+  spread?: number;
+}> = ({ count = 12, xRange = [-4, 4], floorY = -4, fromY = 14, delay = 0, gap = 3, spread = 1.4 }) => (
   <>
     {Array.from({ length: count }, (_, i) => (
       <FallingCoin
         key={i}
         x={xRange[0] + random(`cx${i}`) * (xRange[1] - xRange[0])}
-        landY={floorY - random(`cy${i}`) * 1.4}
+        landY={floorY - random(`cy${i}`) * spread}
         z={random(`cz${i}`) * 1.6}
         spin={(random(`cs${i}`) - 0.5) * 3}
         fromY={fromY}
