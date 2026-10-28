@@ -3,8 +3,20 @@ out
 .env
 faster-whisper-medium
 
-# 용량이 큰 영상 파일은 git에 올리지 않는다 (목록: LARGE_FILES.md)
+# 비디오·오디오 파일은 git에 올리지 않는다 (목록: LARGE_FILES.md)
+# 비디오
 *.mp4
 *.mov
 *.mkv
+*.webm
+*.avi
+*.m4v
+# 오디오
+*.mp3
+*.wav
+*.m4a
+*.aac
+*.ogg
+*.flac
+*.opus
 videos/*/3-footage/

@@ -1,6 +1,6 @@
-# git에 올리지 않은 큰 파일
+# git에 올리지 않은 미디어 파일
 
-용량이 큰 영상 파일은 `.gitignore`로 제외했습니다. 클라우드 드라이브 등 다른 곳에 따로 보관하고, 같은 경로에 두면 그대로 쓸 수 있습니다.
+비디오·오디오 파일은 `.gitignore`로 제외했습니다. 클라우드 드라이브 등 다른 곳에 따로 보관하고, 같은 경로에 두면 그대로 쓸 수 있습니다.
 
 | 파일 | 크기 | 종류 |
 |---|---|---|
@@ -9,7 +9,9 @@
 | `videos/adult-children-talk/2-motion/adult-children-talk-3d-subs.mp4` | 8.4 MB | 렌더 결과물 (3D, 자막 포함) |
 | `videos/adult-children-talk/2-motion/adult-children-talk-3d.mp4` | 7.6 MB | 렌더 결과물 (3D) |
 | `videos/adult-children-talk/2-motion/adult-children-talk.mp4` | 4.1 MB | 렌더 결과물 (2D) |
+| `videos/adult-children-talk/2-motion/voice/narration.mp3` | 0.3 MB | 나레이션 음성 (렌더링에 필요) |
 
 - 렌더 결과물은 `npx remotion render`로 다시 만들 수 있습니다
 - 촬영 원본(`3-footage/`)은 다시 만들 수 없으니 꼭 따로 백업하세요
+- 나레이션 음성은 `scripts/typecast-tts.mjs`로 다시 만들 수 있지만, 결과가 매번 조금씩 달라 타이밍(`timeline.ts`)이 어긋날 수 있으니 따로 보관하세요
 - 함께 제외한 것: `node_modules/`(`npm install`로 복구), `faster-whisper-medium`(공용 모델 폴더로 연결된 junction), `.env`(API 키)
