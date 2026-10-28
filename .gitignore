@@ -1,0 +1,10 @@
+node_modules
+out
+.env
+faster-whisper-medium
+
+# 용량이 큰 영상 파일은 git에 올리지 않는다 (목록: LARGE_FILES.md)
+*.mp4
+*.mov
+*.mkv
+videos/*/3-footage/
